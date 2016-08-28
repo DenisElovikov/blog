@@ -4,7 +4,7 @@ $(function() {
     });
     setTimeout(function() {
         $('#messages li.info').fadeOut();
-    }, 3000);
+    }, 4000);
 });
 
 function setFieldValue(fieldName, fieldValue) {
