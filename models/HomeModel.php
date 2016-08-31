@@ -15,7 +15,7 @@ class HomeModel extends BaseModel
 
     function getPostById(int $id){
         $statement = self::$db->prepare(
-            "SELECT posts.id, title, content, date, full_name ".
+            "SELECT posts.id, title, content, date, full_name, user_id ".
             "FROM posts LEFT JOIN users On posts.user_id = users.id ".
             "WHERE posts.id = ?");
         $statement->bind_param("i", $id);

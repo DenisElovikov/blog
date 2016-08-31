@@ -6,7 +6,7 @@
  * Date: 28-Aug-16
  * Time: 5:30 PM
  */
-class PostsModel extends BaseModel
+class PostsModel extends HomeModel
 {
     function getAll()
     {
@@ -17,16 +17,6 @@ class PostsModel extends BaseModel
             "On posts.user_id = users.id " .
             "ORDER BY date DESC");
         return $statement->fetch_all(MYSQLI_ASSOC);
-    }
-
-    function getById(int $id)
-    {
-        $statement = self::$db->prepare(
-            "SELECT * FROM posts WHERE id = ?");
-        $statement->bind_param("i", $id);
-        $statement->execute();
-        $result = $statement->get_result()->fetch_assoc();
-        return $result;
     }
 
     public function create(string $title, string $content, int $user_id) :bool

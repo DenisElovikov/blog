@@ -63,4 +63,10 @@ class UsersController extends BaseController
         $this->redirect('');
     }
 
+    public function index()
+    {
+        $this->authorize();
+        $this->users = $this->model->getAll();
+    }
+
 }
