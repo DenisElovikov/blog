@@ -55,7 +55,7 @@ class PostsController extends BaseController
             $this->redirect("posts");
         }
         else{
-            $post = $this->model->getById($id);
+            $post = $this->model->getPostById($id);
             if (!$post){
                 $this->addErrorMessage("Post does not exist.");
                 $this->redirect("posts");
